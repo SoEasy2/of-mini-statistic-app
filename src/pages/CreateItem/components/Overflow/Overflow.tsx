@@ -3,7 +3,7 @@ import styles from './Overflow.module.scss';
 import callendar from '../../../../assets/callendar.png';
 import filter from '../../../../assets/filter.svg';
 import korz from '../../../../assets/korz.svg';
-import search from '../../../../assets/search.svg'
+import search from '../../../../assets/searchIcon.svg'
 import Item from "../Item/Item";
 import {useAppSelector} from "../../../../hooks/redux";
 import {Loader} from "../../../../components/loader";

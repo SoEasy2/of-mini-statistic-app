@@ -24,6 +24,7 @@ const Registration:React.FC = () => {
     const handleChange = (e: any) => {
         setAuth(prev => ({...prev, [e.target.name]: e.target.value}))
     }
+    console.log("ERROR", user.error);
     const dispatch = useAppDispatch();
     const handleReg = () => {
            console.log(auth);
@@ -62,7 +63,7 @@ const Registration:React.FC = () => {
                                className={cx(styles.input, styles.inputTelegram)} />
                         <button className={styles.buttonTelegram}>Получить</button>
                     </div>
-                    {user.error ? <p className={styles.error}>Введены некоректно данные</p> : null}
+                    {Object.keys(user.error).length !== 0 ? <p className={styles.error}>Введены некоректно данные</p> : null}
                     <div className={styles.action}>
                         <p>Наш телеграм-бот: <a href="" className={styles.link}>@Название бота</a>.</p>
                     </div>
