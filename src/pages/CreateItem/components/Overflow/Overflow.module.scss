@@ -1,0 +1,49 @@
+.overflow{
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  width: 55vw;
+  .head{
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .wrapper{
+    padding: 24px;
+  }
+  .button{
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 6px;
+    padding: 11px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+  }
+  .wrapperInput{
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .input{
+    background-color: rgba(0, 0, 0, 0.02);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 8px 36px;
+    border:1px solid rgba(0, 0, 0, 0.02);
+    border-radius: 6px;
+    outline: none;
+    width: 44.5vw;
+    margin-right: 12px;
+  }
+  .search{
+    position: absolute;
+  }
+  .img{
+    margin-right: 12px;
+  }
+  .items{
+    display: flex;
+  }
+}

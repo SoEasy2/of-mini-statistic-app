@@ -1,0 +1,88 @@
+.header{
+  .wrapper{
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .button{
+    outline: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: pointer;
+    border:none;
+  }
+  .login{
+    border: 1px solid rgba(0,0,0,0.5);
+    color: rgba(0,0,0, 0.5);
+    background-color: transparent;
+    margin-right: 16px;
+  }
+  .text{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: rgba(0, 0, 0, 0.5);
+    transition: .5s;
+    margin-left: 8px;
+    &:hover{
+      color:#000;
+    }
+  }
+  .buttonPopup{
+    display: flex;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 10px;
+    padding: 0px;
+    cursor: pointer;
+  }
+  .popup{
+    position: absolute;
+    top: 58px;
+    left: -190px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 6px 18px rgba(106, 91, 208, 0.14);
+    border-radius: 4px;
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+  }
+  .reg{
+    background-color: #000000;
+    color: #fff;
+  }
+  .name{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  .popupWrapper{
+    padding: 12px;
+  }
+  .profile{
+    position: relative;
+    cursor: pointer;
+  }
+  .head{
+    margin-bottom: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .title{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    color: #1C212D;
+  }
+
+  border-bottom: 1px solid rgba(0,0,0, 0.1);
+}
