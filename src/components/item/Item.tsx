@@ -6,12 +6,14 @@ import users from '../../assets/item/users.png'
 import video from '../../assets/item/video.png'
 import graphic from '../../assets/graphic.png';
 import {ISearch} from "../../models/search";
+import {useNavigate} from "react-router-dom";
 
 interface IProps{
     item: ISearch
 }
 
 const Item: React.FC<IProps> = ({ item }) => {
+    const navigate = useNavigate();
     return (
         <div className={styles.content}>
             <div className={styles.wrapper}>
@@ -56,7 +58,7 @@ const Item: React.FC<IProps> = ({ item }) => {
                     </div>
                         <div className={styles.blur}>
                             <div className={styles.text}>
-                                <button className={styles.signUp}>Зарегистрируйтесь, </button>
+                                <button className={styles.signUp} onClick={() => navigate('/auth')}>Зарегистрируйтесь, </button>
                                 <p> чтобы просматривать детальную статистику</p>
                             </div>
                         </div>
