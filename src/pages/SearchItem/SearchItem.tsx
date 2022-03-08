@@ -8,23 +8,23 @@ import Item from "../../components/item/Item";
 import {useNavigate, useParams} from "react-router-dom";
 import {ISearch} from "../../models/search";
 import {search} from "../../api/search";
+import {Loader} from "../../components/loader";
 
 const SearchItem:React.FC = () => {
     const [isInfo, setInfo] = useState<boolean>(false);
-    const [item, setItem] = useState<ISearch | null>(null);
-    const navigation = useNavigate();
+    const [item, setItem] = useState<any>(null);
+    const [isLoading, setLoading] = useState<boolean>(false);
     const [url, setUrl] = useState<string>('')
     const params = useParams();
     useEffect(() => {
         (async () => {
+            setLoading(true);
            const response = await search(`https://onlyfans.com/${params.id}`);
            setUrl(params.id!);
            setItem(response)
+            setLoading(false);
         })()
     },[]);
-    useEffect(() => {
-        console.log(item);
-    },[item])
     const handleChangeInput = (e: any) => {
         setUrl(e.target.value);
     }
@@ -32,6 +32,7 @@ const SearchItem:React.FC = () => {
         <section>
                 {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}
                 <Header title={'Анализ OnlyFans страницы'} />
+            {isLoading ? <Loader /> : null}
                 <div className={styles.content}>
                     <div className={styles.searchBar}>
                         <input type="text" className={styles.input}

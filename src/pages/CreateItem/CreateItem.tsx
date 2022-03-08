@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {InformationPanel} from "../../components/informationPanel";
 import Header from "../../components/header/header";
 import Plus from "../../assets/plus.svg";
@@ -7,17 +7,24 @@ import styles  from './CreateItem.module.scss';
 import {Overflow} from "./components/Overflow";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchAddModel} from "../../redux/user/UserSlice";
+import {useNavigate} from "react-router-dom";
 const CreateItem = () => {
     const [isInfo, setInfo] = useState<boolean>(false);
     const {data} = useAppSelector(state => state.user);
     const [url, setUrl] = useState<string>('');
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const handleChange = (e:any) =>{
         setUrl(e.target.value);
     }
     const handleClick = () => {
         dispatch(fetchAddModel({login: data!.login, url: `https://onlyfans.com/${url}`}));
     }
+    useEffect(() => {
+        if(!localStorage.getItem('user_id')){
+            navigate('/')
+        }
+    },[data])
     return (
         <section>
             {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}

@@ -10,6 +10,8 @@ import {Listen} from "./pages/Listen";
 import {useAppDispatch, useAppSelector} from "./hooks/redux";
 import {getUserById} from "./api/auth";
 import {fetchGetUser} from "./redux/user/UserSlice";
+import {Login} from "./pages/Auth/components/Login";
+import {Registration} from "./pages/Auth/components/Registration";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -20,14 +22,12 @@ function App() {
             dispatch(fetchGetUser(+localStorage.getItem("user_id")!));
         }
     }, [])
-    useEffect(()=> {
-        if (data) navigate('/listen');
-    }, [data])
   return (
     <div className='App'>
       <Routes>
-          <Route path={ROUTES.AUTH} element={<AuthPage />}/>
-          <Route path={ROUTES.SEARCH} element={<SearchPage />}/>
+          <Route path={ROUTES.AUTH_LOGIN} element={<AuthPage children={<Login />} />}/>
+          <Route path={ROUTES.AUTH_REGISTER} element={<AuthPage children={<Registration />} />}/>
+           <Route path={ROUTES.SEARCH} element={<SearchPage />}/>
           <Route path={ROUTES.SEARCH_ID} element={<SearchItem />} />
           <Route path={ROUTES.LISTEN} element={ <CreateItem />} />
           <Route path={ROUTES.LISTEN_ID} element={ <Listen /> }/>

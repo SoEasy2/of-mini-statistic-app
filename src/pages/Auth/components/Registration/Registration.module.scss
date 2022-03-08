@@ -3,6 +3,7 @@
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
+  position: relative;
   .wrapper{
     padding: 26px 34px;
   }
@@ -47,7 +48,7 @@
     border:none;
     border-radius: 5px;
     background-color: #6A5BD0;
-    margin-bottom: 64px;
+    margin-bottom: 35px;
     cursor: pointer;
     transition: all .5s;
     &:hover{
@@ -56,9 +57,10 @@
   }
   .action{
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     margin-bottom: 24px;
+    margin-top: 15px;
   }
   .forg{
     color: #6A5BD0;
@@ -97,5 +99,35 @@
     color: #6A5BD0;
     font-size: 14px;
   }
-
+  .telegram{
+    display: flex;
+  }
+  .inputTelegram{
+    border-radius: 5px 0px 0px 5px;
+  }
+  .buttonTelegram{
+    height: 53px;
+    background-color: transparent;
+    outline: none;
+    color:#6A5BD0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    padding: 0 16px;
+    border-radius: 0px 5px 5px 0px;
+  }
+  .error{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color:red;
+  }
+  .link{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #32A8DE;
+  }
 }

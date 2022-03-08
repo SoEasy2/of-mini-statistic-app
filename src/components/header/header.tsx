@@ -30,18 +30,18 @@ const Header:React.FC<IProps> = ({ title }) => {
                         <div className={styles.popup}>
                             <div className={styles.head}>
                                 <div className={styles.popupWrapper}>
-                                    <p className={styles.name}>name</p>
+                                    <p className={styles.name}>{data.login}</p>
                                 </div>
                             </div>
                             <div className={styles.popupWrapper}>
-                                <button className={styles.buttonPopup}><img src={profile} alt=""/><p className={styles.text}>Профиль</p></button>
+                                <button className={styles.buttonPopup} onClick={() => navigation('/listen')}><img src={profile} alt=""/><p className={styles.text}>Профиль</p></button>
                                 <button className={styles.buttonPopup} onClick={() => dispatch(fetchLogout())}><img src={leave} alt=""/><p className={styles.text}>Выйти из аккаунта</p></button>
                                 <div/>
                             </div>
 
                         </div>
                         : null}
-                </div> : <div><button className={cx(styles.button, styles.login)} onClick={() => navigation('/auth')}>Войти</button><button className={cx(styles.button, styles.reg)} onClick={() => navigation('/auth')}>Зарегистрироваться</button></div>}
+                </div> : <div><button className={cx(styles.button, styles.login)} onClick={() => navigation('/auth/login')}>Войти</button><button className={cx(styles.button, styles.reg)} onClick={() => navigation('/auth/registration')}>Зарегистрироваться</button></div>}
             </div>
         </header>
     );

@@ -1,5 +1,6 @@
 export enum ROUTES {
-    AUTH = '/Auth',
+    AUTH_LOGIN = '/auth/login',
+    AUTH_REGISTER = '/auth/registration',
     SEARCH = '/',
     SEARCH_ID = '/search/:id',
     LISTEN = '/listen',

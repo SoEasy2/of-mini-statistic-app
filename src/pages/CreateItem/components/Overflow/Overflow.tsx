@@ -6,13 +6,16 @@ import korz from '../../../../assets/korz.svg';
 import search from '../../../../assets/search.svg'
 import Item from "../Item/Item";
 import {useAppSelector} from "../../../../hooks/redux";
+import {Loader} from "../../../../components/loader";
 
 const Overflow = () => {
     const {data} = useAppSelector(state => state.user);
+    const {isLoad} = useAppSelector(state => state.user);
     return (
         <div className={styles.overflow}>
-            <div className={styles.wrapper}>
+
             <div className={styles.head}>
+                <div className={styles.wrapperHead}>
                 <button className={styles.button}>
                     <img src={callendar} alt="" className={styles.img}/>
                 </button>
@@ -26,11 +29,14 @@ const Overflow = () => {
                 <button className={styles.button}>
                     <img src={filter} alt="" className={styles.img}/>
                 </button>
+                </div>
             </div>
+            <div className={styles.wrapper}>
+                {isLoad ? <Loader /> : null}
                 <div className={styles.items}>
                     {data ? data.models.map(item => <Item item={item} />) : null}
                 </div>
-            </div>
+        </div>
         </div>
     );
 };

@@ -9,22 +9,23 @@ import {search} from "../../api/search";
 import styles from './Listen.module.scss';
 import Item from "./Item/Item";
 import {getModel} from "../../api/model";
+import {Loader} from "../../components/loader";
 
 const Listen:React.FC = () => {
     const [isInfo, setInfo] = useState<boolean>(false);
     const [item, setItem] = useState<ISearch | null>(null);
+    const [isLoading, setLoading] = useState<boolean>(false);
     const navigation = useNavigate();
     const [url, setUrl] = useState<string>('')
     const params = useParams();
     useEffect(() => {
         (async () => {
+            setLoading(true);
             const response = await getModel({days: 10, id: +params.id!});
-            setItem(response)
+            setItem(response);
+            setLoading(false);
         })()
     },[]);
-    useEffect(() => {
-        console.log(item);
-    },[item])
     const handleChangeInput = (e: any) => {
         setUrl(e.target.value);
     }
@@ -32,11 +33,15 @@ const Listen:React.FC = () => {
         <section>
             {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}
             <Header title={'Анализ OnlyFans страницы'} />
+            <div className={styles.loader}>
+                {isLoading ? <Loader /> : null}
             <div className={styles.wrapper}>
                 {item ? <Item item={item} /> : null}
             </div>
             <Information className={styles.info} onClick={()=> setInfo(true)}/>
-        </section>
+            </div>
+            </section>
+
     );
 };
 

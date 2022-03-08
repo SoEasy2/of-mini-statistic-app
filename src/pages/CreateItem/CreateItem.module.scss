@@ -1,4 +1,8 @@
 section{
+  background-image: url(../../assets/bgc.png);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  height: 100vh;
   .content{
     padding-top: 42px;
     display: flex;
@@ -7,7 +11,7 @@ section{
     text-align: center;
   }
   .input{
-    width: 55vw;
+    width: 63vw;
     border: 1px solid rgba(0, 0, 0, 0.1);
     outline: none;
     padding: 17px 24px;
@@ -50,7 +54,7 @@ section{
   }
   .wrapperOverflow{
     padding-top: 40px;
-    width: 59.4vw;
+    width: 67.4vw;
     margin: 0 auto;
   }
 }

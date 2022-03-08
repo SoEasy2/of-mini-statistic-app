@@ -5,19 +5,19 @@ import styles from './AuthModule.module.scss';
 import {useAppSelector} from "../../hooks/redux";
 import {useNavigate} from "react-router-dom";
 
-const AuthPage:React.FC = () => {
+const AuthPage:React.FC = ( {children} ) => {
     const {data} = useAppSelector(state => state.user);
     const navigation = useNavigate();
     useEffect(() => {
         if (data) {
-            navigation('/search');
+            navigation('/');
         }
     }, [data]);
     return (
-        <div>
+        <div className={styles.auth}>
             <Header />
             <div className={styles.content}>
-                <Auth />
+                <Auth children={children}/>
             </div>
         </div>
     );
