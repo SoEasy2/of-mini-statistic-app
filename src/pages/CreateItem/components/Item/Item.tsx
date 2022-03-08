@@ -17,7 +17,7 @@ const Item:React.FC<IProps> = ({ item }) => {
         <div className={styles.item} onClick={() => navigate(`/listen/${item.id}`)}>
             <div className={styles.head}>
                 <img src={item.avatarUrl} alt="" className={styles.img}/>
-                <p>{item.name}</p>
+                <p className={styles.name}>{item.name}</p>
             </div>
             <div className={styles.content}>
                 <div className={styles.left}>
