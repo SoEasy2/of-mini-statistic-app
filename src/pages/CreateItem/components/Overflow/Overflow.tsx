@@ -20,7 +20,7 @@ const Overflow = () => {
                     <img src={callendar} alt="" className={styles.img}/>
                 </button>
                 <div className={styles.wrapperInput}>
-                    <input type="text" className={styles.input}/>
+                    <input type="text" className={styles.input} placeholder={'Поиск'}/>
                     <img src={search} alt="" className={styles.search}/>
                 </div>
                 <button className={styles.button}>

@@ -57,7 +57,7 @@ const Item: React.FC<IProps> = ({ item }) => {
                     </div>
                         <div className={styles.blur}>
                             <div className={styles.text}>
-                                <button className={styles.signUp} onClick={() => navigate('/auth')}>Зарегистрируйтесь, </button>
+                                <button className={styles.signUp} onClick={() => navigate('/auth/registration')}>Зарегистрируйтесь, </button>
                                 <p> чтобы просматривать детальную статистику</p>
                             </div>
                         </div>

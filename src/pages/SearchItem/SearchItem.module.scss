@@ -5,9 +5,10 @@ section{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    position: relative;
   }
   .input{
-    width: 55vw;
+    width: 63vw;
     border: 1px solid rgba(0, 0, 0, 0.1);
     outline: none;
     padding: 17px 24px;
@@ -49,7 +50,11 @@ section{
     }
   }
   .wrapper{
-    width: 59vw;
+    width: 67.2vw;
     margin: 0 auto;
+  }
+  .loader{
+    position: relative;
+    height: 92vh;
   }
 }

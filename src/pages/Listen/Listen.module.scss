@@ -49,9 +49,12 @@ section{
     }
   }
   .wrapper{
+    padding-top: 30px;
     width: 59vw;
     margin: 0 auto;
   }
   .loader{
+    position: relative;
+    height: 92vh;
   }
 }
