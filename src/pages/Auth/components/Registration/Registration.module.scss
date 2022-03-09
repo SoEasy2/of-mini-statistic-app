@@ -117,6 +117,10 @@
     cursor: pointer;
     padding: 0 16px;
     border-radius: 0px 5px 5px 0px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .error{
     font-family: 'Poppins', sans-serif;

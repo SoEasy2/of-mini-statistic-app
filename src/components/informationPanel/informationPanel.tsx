@@ -47,7 +47,7 @@ const InformationPanel:React.FC<IProps> = ({onClick}) => {
                     </li>
                 </ul>
                 </div>
-                <button className={styles.button}><p>Подписывайтесь на наш Telegram-канал</p><img src={telegram} alt=""/></button>
+                <a href={'https://t.me/ofminiistatistics_bot'} target={'_blank'} className={styles.button}><p>Подписывайтесь на наш Telegram-канал</p><img src={telegram} alt=""/></a>
             </div>
         </div>
     );

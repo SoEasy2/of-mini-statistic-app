@@ -28,8 +28,9 @@ const Registration:React.FC = () => {
     const dispatch = useAppDispatch();
     const handleReg = () => {
            console.log(auth);
+
            if (auth.password === auth.confirm && auth.login !== '' && auth.password !== '' && auth.telegramId !== ''){
-               dispatch(fetchRegistration({login: auth.login, password: auth.password, telegramId: auth.telegramId}));
+               dispatch(fetchRegistration({login: auth.login, password: auth.password}));
            }
     }
     const navigate = useNavigate();
@@ -61,11 +62,11 @@ const Registration:React.FC = () => {
                                name={'telegramId'}
                                onChange={handleChange}
                                className={cx(styles.input, styles.inputTelegram)} />
-                        <button className={styles.buttonTelegram}>Получить</button>
+                        <a className={styles.buttonTelegram} href={'https://t.me/ofminiistatistics_bot'} target={"_blank"}>Получить</a>
                     </div>
                     {Object.keys(user.error).length !== 0 ? <p className={styles.error}>Введены некоректно данные</p> : null}
                     <div className={styles.action}>
-                        <p>Наш телеграм-бот: <a href="" className={styles.link}>@Название бота</a>.</p>
+                        <p>Наш телеграм-бот: <a href="https://t.me/ofminiistatistics_bot" target={"_blank"} className={styles.link}>@ofminiistatistics_bot</a>.</p>
                     </div>
                     <button className={styles.signIn} onClick={handleReg}>Войти</button>
                     <div className={styles.reg}>
