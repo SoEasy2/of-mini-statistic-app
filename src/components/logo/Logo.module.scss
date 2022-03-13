@@ -1,0 +1,20 @@
+.logo{
+  cursor: pointer;
+  .wrapper{
+    display: flex;
+    align-items: center;
+  }
+  .logoText{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color:#1C212D;
+  }
+  .img{
+    width: 36px;
+    height: 36px;
+    border-radius: 100px;
+    margin-right: 16px;
+  }
+}

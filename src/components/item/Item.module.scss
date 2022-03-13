@@ -1,0 +1,122 @@
+.content{
+  width: 63.05vw;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-top: 40px;
+  .wrapper{
+    padding: 24px;
+  }
+  .wrapperInfo{
+    padding: 0 24px;
+  }
+  .list{
+    display: flex;
+    justify-content: space-between;
+  }
+  .img{
+    margin-right: 24px;
+    width: 80px;
+    height: 80px;
+    border-radius: 300px;
+  }
+  .head{
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .left{
+    display: flex;
+    align-items: center;
+  }
+  .buttonClose{
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 6px;
+    border:none;
+    outline: none;
+    cursor: pointer;
+    padding: 15px;
+  }
+  .name{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 54px;
+  }
+  .item{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 14px;
+    justify-content: space-between;
+    border-radius: 6px;
+    img{
+      margin-right: 12px;
+    }
+  }
+  .wrapperItem{
+    display: flex;
+    align-items: center;
+  }
+  .text{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .kol{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 36px;
+  }
+  .info{
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+  .graphic{
+    position: relative;
+  }
+  .contentGraphic{
+
+  }
+  .imgGraphic{
+    width: 51vw;
+  }
+  .blur{
+    position: absolute;
+    top:0;
+    left:0;
+    right: 0;
+    bottom:0;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .signUp{
+    color: #6A5BD0;
+    border:none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .text{
+    display: flex;
+    p{
+      color: rgba(0, 0, 0, 0.5);
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+}
