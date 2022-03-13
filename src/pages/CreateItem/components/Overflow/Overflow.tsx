@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Overflow.module.scss';
 import callendar from '../../../../assets/callendar.png';
 import filter from '../../../../assets/filter.svg';
-import korz from '../../../../assets/korz.svg';
+import {ReactComponent as Korz} from '../../../../assets/korz.svg';
 import search from '../../../../assets/searchIcon.svg'
 import Item from "../Item/Item";
 import {useAppSelector} from "../../../../hooks/redux";
@@ -11,6 +11,15 @@ import {Loader} from "../../../../components/loader";
 const Overflow = () => {
     const {data} = useAppSelector(state => state.user);
     const {isLoad} = useAppSelector(state => state.user);
+    const [actionId, setActionId] = useState<number>(0);
+    const [focusItems, setFocusItems] = useState<number[]>([]);
+    const handleClickItem = (index: number) => {
+        if (focusItems.includes(index)){
+            setFocusItems(focusItems.filter(item => item !== index));
+        } else{
+            setFocusItems([...focusItems, index]);
+        }
+    }
     return (
         <div className={styles.overflow}>
 
@@ -23,8 +32,8 @@ const Overflow = () => {
                     <input type="text" className={styles.input} placeholder={'Поиск'}/>
                     <img src={search} alt="" className={styles.search}/>
                 </div>
-                <button className={styles.button}>
-                    <img src={korz} alt="" className={styles.img}/>
+                <button className={styles.button} disabled={!focusItems.length} onClick={() => console.log('click')}>
+                    <Korz className={focusItems.length ? styles.act : styles.dis} />
                 </button>
                 <button className={styles.button}>
                     <img src={filter} alt="" className={styles.img}/>
@@ -34,7 +43,7 @@ const Overflow = () => {
             <div className={styles.wrapper}>
                 {isLoad ? <Loader /> : null}
                 <div className={styles.items}>
-                    {data ? data.models.map(item => <Item item={item} />) : null}
+                    {data ? data.models.map(item => <Item item={item} actionId={ actionId} setActionId={setActionId} handleClickItem={handleClickItem} focusItems={focusItems} />) : <div className={styles.notFound}>Модели отсуствуют</div>}
                 </div>
         </div>
         </div>

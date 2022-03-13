@@ -12,6 +12,7 @@ import {getUserById} from "./api/auth";
 import {fetchGetUser} from "./redux/user/UserSlice";
 import {Login} from "./pages/Auth/components/Login";
 import {Registration} from "./pages/Auth/components/Registration";
+import {Profile} from "./pages/Profile";
 
 function App() {
     const dispatch = useAppDispatch();
@@ -31,6 +32,7 @@ function App() {
           <Route path={ROUTES.SEARCH_ID} element={<SearchItem />} />
           <Route path={ROUTES.LISTEN} element={ <CreateItem />} />
           <Route path={ROUTES.LISTEN_ID} element={ <Listen /> }/>
+          <Route path={ROUTES.PROFILE} element={ <Profile /> }/>
       </Routes>
     </div>
   );

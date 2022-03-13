@@ -28,7 +28,7 @@ const CreateItem = () => {
     return (
         <section>
             {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}
-            <Header title={'Статистика'} />
+            <Header title={'Stats'} />
             <div className={styles.content}>
                 <div className={styles.searchBar}>
                     <input type="text" className={styles.input} placeholder={'Enter in a username from YouTube, Twitch, Twitter, Instagram, or Dailymotion'} value={url} onChange={handleChange}/>

@@ -1,8 +1,8 @@
 import {IState} from "./types";
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {search} from "../../api/search";
-import {IAuth} from "../../models/auth";
-import {getUserById, login, logout, register} from "../../api/auth";
+import {IAuth, IUpdate} from "../../models/auth";
+import {getUserById, login, logout, register, update} from "../../api/auth";
 import {addModel} from "../../api/model";
 import {IAddModelDto} from "../../models/model/add-model-dto";
 
@@ -43,6 +43,7 @@ export const fetchLogout = createAsyncThunk(
         return logout();
     }
 );
+export const fetchUpdate = createAsyncThunk("user/update", (dto: IUpdate) => {return update(dto)})
 
 export const userSlice = createSlice({
     name: "user",
@@ -106,6 +107,18 @@ export const userSlice = createSlice({
             state.data = null;
         },
         [fetchLogout.rejected.type]: (state: IState, action) => {
+            state.isLoad = false;
+            state.error = action.error;
+        },
+        [fetchUpdate.pending.type]: (state: IState) => {
+            state.isLoad = true;
+        },
+        [fetchUpdate.fulfilled.type]: (state: IState, action) => {
+            state.isLoad = false;
+            state.error = {};
+            state.data = action.payload;
+        },
+        [fetchUpdate.rejected.type]: (state: IState, action) => {
             state.isLoad = false;
             state.error = action.error;
         },

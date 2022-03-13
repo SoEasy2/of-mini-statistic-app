@@ -6,18 +6,41 @@ import right from '../../../../assets/right.svg';
 import cx from "classnames";
 import {IModel} from "../../../../redux/user/types";
 import {useNavigate} from "react-router-dom";
+import {StatisticItem} from "../statisticItem";
+import arrowNotActive from "../../../../assets/arrowNotActive.svg";
+import arrowActive from "../../../../assets/arrowActive.svg"
 
 export interface IProps{
-    item: IModel
+    item: IModel,
+    actionId: number,
+    handleClickItem(index:number): void;
+    focusItems: number[];
+    setActionId (data: number): void;
 }
 
-const Item:React.FC<IProps> = ({ item }) => {
+const Item:React.FC<IProps> = ({ item, actionId, setActionId, handleClickItem, focusItems }) => {
     const navigate = useNavigate();
+    const handleClickStatics = (e: any) => {
+        e.stopPropagation()
+        if (focusItems.includes(item.id)){
+            if (actionId === item.id){
+                setActionId(0);
+            } else{
+                setActionId(item.id);
+            }
+        }
+    }
+    const onClick = () => {
+        navigate(`/listen/${item.id}`);
+    }
     return (
-        <div className={styles.item} onClick={() => navigate(`/listen/${item.id}`)}>
+        <div className={cx(styles.item, focusItems.includes(item.id) ? styles.itemFocus : null)} onClick={() => handleClickItem(item.id)}>
             <div className={styles.head}>
-                <img src={item.avatarUrl} alt="" className={styles.img}/>
-                <p className={styles.name}>{item.name}</p>
+                <div className={styles.user}>
+                    <img src={item.avatarUrl} alt="" className={styles.img}/>
+                    <p className={styles.name}>{item.name}</p>
+                </div>
+                <button className={styles.arrowNotActive} onClick={handleClickStatics}><img src={actionId === item.id && focusItems.includes(item.id) ? arrowActive  : arrowNotActive} alt=""/></button>
             </div>
             <div className={styles.content}>
                 <div className={styles.left}>
@@ -44,6 +67,7 @@ const Item:React.FC<IProps> = ({ item }) => {
                     </div>
                 </div>
             </div>
+            {actionId === item.id && focusItems.includes(item.id) ? <StatisticItem onClick={onClick}/> : null}
         </div>
     );
 };

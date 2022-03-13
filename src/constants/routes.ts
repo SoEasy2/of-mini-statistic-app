@@ -4,5 +4,6 @@ export enum ROUTES {
     SEARCH = '/',
     SEARCH_ID = '/search/:id',
     LISTEN = '/listen',
-    LISTEN_ID = '/listen/:id'
+    LISTEN_ID = '/listen/:id',
+    PROFILE  = '/profile'
 }

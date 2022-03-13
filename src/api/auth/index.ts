@@ -1,5 +1,5 @@
 import {$api} from "../../http";
-import {IAuth} from "../../models/auth";
+import {IAuth, IUpdate} from "../../models/auth";
 
 export const login = async (dto: IAuth) => {
     const response = await $api.post('user/login', dto);
@@ -18,4 +18,8 @@ export const getUserById = async (id: number) => {
 export const logout = () => {
     localStorage.removeItem('user_id');
     return null;
+}
+export const update = async (dto:IUpdate) => {
+    const response = await $api.put(`/user`, dto);
+    return response.data
 }

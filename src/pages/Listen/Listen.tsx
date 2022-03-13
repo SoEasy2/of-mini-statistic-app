@@ -32,7 +32,7 @@ const Listen:React.FC = () => {
     return (
         <section>
             {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}
-            <Header title={'Анализ OnlyFans страницы'} />
+            <Header title={'Stats'} />
             <div className={styles.loader}>
                 {isLoading ? <Loader /> : null}
             <div className={styles.wrapper}>

@@ -16,7 +16,7 @@ const SearchPage:React.FC = () => {
     return (
         <section>
             {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}
-            <Header />
+            <Header title={'Main'} />
             <div className={styles.content}>
                 <h1 className={styles.title}>Анализ OnlyFans страницы</h1>
                 <div className={styles.searchBar}>
