@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "../../components/header/header";
 import styles from './SearchPage.module.scss';
 import Search from '../../assets/search.svg';
 import {Information} from "../../components/information";
 import {InformationPanel} from "../../components/informationPanel";
 import {useNavigate} from "react-router-dom";
+import {useAppSelector} from "../../hooks/redux";
 
 const SearchPage:React.FC = () => {
     const [isInfo, setInfo] = useState<boolean>(false);
@@ -12,7 +13,13 @@ const SearchPage:React.FC = () => {
     const handleChangeInput = (e: any) => {
         setUrl(e.target.value);
     }
+    const {data} = useAppSelector(state => state.user);
     const navigation = useNavigate();
+    useEffect(() => {
+        if (data) {
+            navigation('/listen');
+        }
+    }, [data]);
     return (
         <section>
             {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}

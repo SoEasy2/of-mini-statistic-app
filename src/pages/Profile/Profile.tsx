@@ -17,7 +17,7 @@ const Profile = () => {
         login: data!.login || "",
         password: '',
         confirm: '',
-        telegramId: data!.telegramId.toString() || "",
+        telegramId: data!.telegramId,
         id: data!.id || 0,
     });
     useEffect(() => {
@@ -62,6 +62,7 @@ const Profile = () => {
                         <input type={'text'} placeholder={'Telegram ID'}
                                name={'telegramId'}
                                onChange={handleChange}
+                               value={profile.telegramId}
                                className={cx(styles.input, styles.inputTelegram)} />
                         <a className={styles.buttonTelegram} href={'https://t.me/ofminiistatistics_bot'} target={"_blank"}>Получить</a>
                     </div>

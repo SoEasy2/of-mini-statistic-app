@@ -3,6 +3,8 @@
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   margin-top: 40px;
+  position: relative;
+  height: 67vh;
   .wrapper{
     padding: 24px;
   }
@@ -21,7 +23,7 @@
   }
   .head{
     display: flex;
-    align-items: center;
+    justify-content: space-between;
     margin-bottom: 24px;
   }
   .left{
@@ -118,5 +120,70 @@
       font-size: 14px;
       line-height: 21px;
     }
+  }
+  .profile{
+    display: flex;
+    align-items: center;
+  }
+  .action{
+    display: flex;
+    align-items: center;
+  }
+  .buttonDelete{
+    padding: 8px 12px;
+    background-color: rgba(243, 90, 69, 0.1);
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    border:none;
+    outline: none;
+    color: #F35A45;
+    cursor: pointer;
+  }
+  .wrapperButton{
+    padding-right: 12px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .filter{
+    background-color: rgba(0, 0, 0, 0.02);
+    border-radius: 6px;
+    border:none;
+    outline: none;
+    padding: 9px 10px;
+    cursor: pointer;
+    margin: 0 12px;
+  }
+  .buttonItem{
+    padding: 9px 10px;
+  }
+  .itemOne{
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: transparent;
+    border-radius: 6px 0px 0px 6px;
+    outline: none;
+    cursor: pointer ;
+  }
+  .itemTwo{
+    background-color: #6A5BD0;
+    border-radius: 0px 6px 6px 0px;
+    outline: none;
+    cursor: pointer;
+    border:1px solid transparent;
+  }
+  .buttonAdd{
+    cursor: pointer;
+    color: #6A5BD0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 8px 12px;
+    border:none;
+    background-color: rgba(106, 91, 208, 0.1);
+    border-radius: 6px;
+  }
+  .loader{
+    height: 67vh;
   }
 }

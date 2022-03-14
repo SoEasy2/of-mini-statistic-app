@@ -10,3 +10,7 @@ export const getModel = async (dto:IGetModelDto) => {
     const response = await $api.get(`page/onlyFansModel/${dto.id}/statistic?days=${dto.days}`);
     return response.data
 }
+export const deleteModel = async (dto: number[]) => {
+    const response = await $api.delete("https://of-mini-statistics-api.herokuapp.com/onlyFansModel/list", {data: dto})
+    return dto
+}

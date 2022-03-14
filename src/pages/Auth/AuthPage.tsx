@@ -10,7 +10,7 @@ const AuthPage:React.FC = ( {children} ) => {
     const navigation = useNavigate();
     useEffect(() => {
         if (data) {
-            navigation('/');
+            navigation('/listen');
         }
     }, [data]);
     return (

@@ -3,7 +3,8 @@ section{
   background-position: bottom center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 20px;
   .content{
     padding-top: 42px;
     display: flex;

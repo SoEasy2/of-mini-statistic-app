@@ -22,7 +22,7 @@ const Header:React.FC<IProps> = ({ title }) => {
     return (
         <header className={styles.header}>
             <div className={styles.wrapper}>
-                <div className={styles.wrapperNav}><Logo /> {data ? <div className={styles.nav}><button className={cx(styles.navButton, title === "Main" ? styles.activeNavButton : null)} onClick={() => navigation('/')}>Главная</button> <button className={cx(styles.navButton, title === "Stats" ? styles.activeNavButton : null)} onClick={() => navigation('/listen')}>Cтатистика</button></div> : null}</div>
+                <div className={styles.wrapperNav}><Logo /></div>
                 {data ?  <div className={styles.profile} onClick={() => setProfile(!isProfile)}>
                     <img src={imgprof} alt=""/>
                     {isProfile ?

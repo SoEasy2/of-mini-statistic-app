@@ -10,9 +10,10 @@ interface IUser{
     id: number,
     login: string,
     password: string,
-    telegramId: number,
+    telegramId: string,
     role: string,
-    models: IModel[]
+    models: IModel[],
+    modelsName: string[],
 }
 
 export interface IState{

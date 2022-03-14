@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from './loader.module.scss';
+import cx from "classnames";
 
-const Loader = () => {
+interface IProps{
+    className?: string
+}
+
+const Loader:React.FC<IProps> = ({className}) => {
     return (
-        <div className={styles.loader}>
+        <div className={cx(styles.loader, className)}>
             <div className={styles.ldsRing}>
                 <div></div>
                 <div></div>

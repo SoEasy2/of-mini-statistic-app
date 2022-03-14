@@ -8,6 +8,7 @@ import {Overflow} from "./components/Overflow";
 import {useAppDispatch, useAppSelector} from "../../hooks/redux";
 import {fetchAddModel} from "../../redux/user/UserSlice";
 import {useNavigate} from "react-router-dom";
+import Search from "../../assets/search.svg";
 const CreateItem = () => {
     const [isInfo, setInfo] = useState<boolean>(false);
     const {data} = useAppSelector(state => state.user);
@@ -18,7 +19,7 @@ const CreateItem = () => {
         setUrl(e.target.value);
     }
     const handleClick = () => {
-        dispatch(fetchAddModel({login: data!.login, url: `https://onlyfans.com/${url}`}));
+        dispatch(fetchAddModel({login: data!.telegramId, url: `https://onlyfans.com/${url}`}));
     }
     useEffect(() => {
         if(!localStorage.getItem('user_id')){
@@ -32,7 +33,8 @@ const CreateItem = () => {
             <div className={styles.content}>
                 <div className={styles.searchBar}>
                     <input type="text" className={styles.input} placeholder={'Enter in a username from YouTube, Twitch, Twitter, Instagram, or Dailymotion'} value={url} onChange={handleChange}/>
-                    <button className={styles.buttonSearch} onClick={handleClick}><img src={Plus} alt=""/></button>
+                   {/* <button className={styles.buttonSearch} onClick={handleClick}><img src={Plus} alt=""/></button>*/}
+                    <button className={styles.buttonSearch} onClick={() => navigate(`/search/${url}`)}><img src={Search} alt=""/></button>
                 </div>
             </div>
             <div className={styles.wrapperOverflow}>
