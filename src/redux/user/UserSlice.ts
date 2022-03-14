@@ -127,7 +127,9 @@ export const userSlice = createSlice({
             state.isLoad = true;
         },
         [fetchDelete.fulfilled.type]: (state: IState, action) => {
-            state.data?.models.filter(item => action.payload.includes(item.id))
+          state.data?.models.map(item => console.log(action.payload.includes(item.id)));
+            // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+            state.data  ? state.data.models = state.data.models.filter(item => !action.payload.includes(item.id)) : null;
             state.isLoad = false;
             state.error = {};
         },
