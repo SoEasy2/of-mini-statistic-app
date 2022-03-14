@@ -62,6 +62,13 @@ const SearchItem:React.FC = () => {
     const handleChangeInput = (e: any) => {
         setUrl(prev => ({...prev, text: e.target.value}));
     }
+    const handleSearch = (event: any) => {
+        if (event.key == "Enter") {
+            if (event.target.value !== "") {
+                navigation(`/search/${url}`);
+            }
+        }
+    }
     return (
         <section>
                 {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}
@@ -73,6 +80,7 @@ const SearchItem:React.FC = () => {
                         <input type="text" className={cx(styles.input, url.error ? styles.error : null)}
                                onChange={handleChangeInput}
                                value={url.text}
+                               onKeyDown={handleSearch}
                                placeholder={'Enter in a username or url from OnlyFans'}/>
                         <button className={styles.buttonSearch} onClick={() => navigation(`/search/${url.text}`)}><img src={Search} alt=""/></button>
                     </div>

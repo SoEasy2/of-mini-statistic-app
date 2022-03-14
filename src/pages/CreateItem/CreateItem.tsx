@@ -26,13 +26,20 @@ const CreateItem = () => {
             navigate('/')
         }
     },[data])
+    const handleSearch = (event: any) => {
+        if (event.key == "Enter") {
+            if (event.target.value !== "") {
+                navigate(`/search/${url}`);
+            }
+        }
+    }
     return (
         <section>
             {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}
             <Header title={'Stats'} />
             <div className={styles.content}>
                 <div className={styles.searchBar}>
-                    <input type="text" className={styles.input} placeholder={'Enter in a username from YouTube, Twitch, Twitter, Instagram, or Dailymotion'} value={url} onChange={handleChange}/>
+                    <input type="text" className={styles.input} onKeyDown={handleSearch} placeholder={'Enter in a username from YouTube, Twitch, Twitter, Instagram, or Dailymotion'} value={url} onChange={handleChange}/>
                    {/* <button className={styles.buttonSearch} onClick={handleClick}><img src={Plus} alt=""/></button>*/}
                     <button className={styles.buttonSearch} onClick={() => navigate(`/search/${url}`)}><img src={Search} alt=""/></button>
                 </div>

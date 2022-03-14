@@ -20,6 +20,13 @@ const SearchPage:React.FC = () => {
             navigation('/listen');
         }
     }, [data]);
+    const handleSearch = (event: any) => {
+        if (event.key == "Enter") {
+            if (event.target.value !== "") {
+                navigation(`/search/${url}`);
+            }
+        }
+    }
     return (
         <section>
             {isInfo ? <InformationPanel onClick={() => setInfo(false)} /> : null}
@@ -30,6 +37,7 @@ const SearchPage:React.FC = () => {
                     <input type="text" className={styles.input}
                            onChange={handleChangeInput}
                            value={url}
+                           onKeyDown={handleSearch}
                            placeholder={'Enter in a username from YouTube, Twitch, Twitter, Instagram, or Dailymotion'}/>
                     <button className={styles.buttonSearch} onClick={() => navigation(`/search/${url}`)}><img src={Search} alt=""/></button>
                 </div>

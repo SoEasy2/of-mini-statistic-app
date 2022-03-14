@@ -30,8 +30,8 @@ const Item: React.FC<IProps> = ({ item }) => {
         setFlag(userModels.includes(`https://onlyfans.com/${params.id!}`));
     },[])
     useEffect(() => {
-        setUserModels(data && data.models ? data.models.map(item => item.name) : []);
-    },[data!.models, params.id])
+        setUserModels(data && data.models.length && data.models ? data.models.map(item => item.name) : []);
+    },[data && data!.models, params.id])
     const navigate = useNavigate();
     const onClickAdd = () => {
         dispatch(fetchAddModel({login: data!.telegramId, url: `https://onlyfans.com/${params.id!}`}))
