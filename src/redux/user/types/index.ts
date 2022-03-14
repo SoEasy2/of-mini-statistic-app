@@ -4,6 +4,7 @@ export interface IModel{
     name: string,
     url: string,
     avatarUrl: string,
+    needAlerts: boolean,
 }
 
 interface IUser{

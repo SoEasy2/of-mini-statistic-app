@@ -1,6 +1,7 @@
 import {IAddModelDto} from "../../models/model/add-model-dto";
 import {$api} from "../../http";
 import {IGetModelDto} from "../../models/model/get-model-dto";
+import {IAddNotificationDto} from "../../models/model/add-notification-dto";
 
 export const addModel = async (dto: IAddModelDto) => {
     const response = await $api.post(`user/${dto.login}/model?url=${dto.url}`)

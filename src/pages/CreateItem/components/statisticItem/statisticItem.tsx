@@ -1,14 +1,22 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './statisticItem.module.scss';
 import {Item} from "./components";
+import {$api} from "../../../../http";
 
 interface IProps{
     onClick():void;
+    needAlerts: boolean;
+    id: number
 }
 
-const StatisticItem:React.FC<IProps> = ({ onClick }) => {
+const StatisticItem:React.FC<IProps> = ({ onClick, needAlerts, id }) => {
+    const [isNotification, setNotification] = useState<boolean>(needAlerts);
+    const handleClickNotification = async () => {
+        setNotification(!isNotification)
+        await $api.put(`/onlyFansModel/${id}/alerts?enable=${!isNotification}`)
+    }
     return (
-        <div className={styles.statisticItem}>
+        <div className={styles.statisticItem} onClick={e => e.stopPropagation()}>
             <div className={styles.wrapper}>
                 <div className={styles.head}>
                     <p className={styles.headText}>Лайков</p>
@@ -40,7 +48,7 @@ const StatisticItem:React.FC<IProps> = ({ onClick }) => {
                         <button className={styles.button} onClick={onClick}>Статистика</button>
                         <div className={styles.notifyWrapper}>
                             <p className={styles.notifyText}>Уведомления</p>
-                            <input type="checkbox"/>
+                            <input type="checkbox" checked={isNotification} onClick={handleClickNotification}/>
                         </div>
                     </div>
             </div>

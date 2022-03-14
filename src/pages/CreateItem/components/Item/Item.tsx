@@ -67,7 +67,7 @@ const Item:React.FC<IProps> = ({ item, actionId, setActionId, handleClickItem, f
                     </div>
                 </div>
             </div>
-            {actionId === item.id && focusItems.includes(item.id) ? <StatisticItem onClick={onClick}/> : null}
+            {actionId === item.id && focusItems.includes(item.id) ? <StatisticItem id={item.id} onClick={onClick} needAlerts={item.needAlerts}/> : null}
         </div>
     );
 };
