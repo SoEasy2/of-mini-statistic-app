@@ -5,6 +5,7 @@ import {IAddNotificationDto} from "../../models/model/add-notification-dto";
 
 export const addModel = async (dto: IAddModelDto) => {
     const response = await $api.post(`user/${dto.login}/model?url=${dto.url}`)
+    await $api.post(`https://of-mini-statistics-api.herokuapp.com/telegram/send/${dto.login}/OnlyFansModelAdded`, response.data);
     return response.data;
 }
 export const getModel = async (dto:IGetModelDto) => {

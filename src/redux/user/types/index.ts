@@ -7,7 +7,7 @@ export interface IModel{
     needAlerts: boolean,
 }
 
-interface IUser{
+export interface IUser{
     id: number,
     login: string,
     password: string,

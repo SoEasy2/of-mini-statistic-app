@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './Overflow.module.scss';
 import callendar from '../../../../assets/callendar.png';
 import filter from '../../../../assets/filter.svg';
@@ -8,9 +8,20 @@ import Item from "../Item/Item";
 import {useAppDispatch, useAppSelector} from "../../../../hooks/redux";
 import {Loader} from "../../../../components/loader";
 import {fetchDelete} from "../../../../redux/user/UserSlice";
+import {IModel, IUser} from "../../../../redux/user/types";
 
 const Overflow = () => {
-    const {data} = useAppSelector(state => state.user);
+    const user = useAppSelector(state => state.user);
+    const [data, setData] = useState<IUser | null>(user.data);
+    useEffect(() => {
+        setData(user.data);
+    }, [user]);
+    const handleSearch = (event: any) => {
+        if (event.target.value === "") setData(user.data);
+        else {
+            data && user && user.data != null && setData ({...data, models: user.data.models.filter(item => item.name.includes(event.target.value))});
+        }
+    }
     const {isLoad} = useAppSelector(state => state.user);
     const [actionId, setActionId] = useState<number>(0);
     const dispatch = useAppDispatch();
@@ -31,7 +42,7 @@ const Overflow = () => {
                     <img src={callendar} alt="" className={styles.img}/>
                 </button>
                 <div className={styles.wrapperInput}>
-                    <input type="text" className={styles.input} placeholder={'Поиск'}/>
+                    <input type="text" className={styles.input} placeholder={'Поиск'} onChange={handleSearch}/>
                     <img src={search} alt="" className={styles.search}/>
                 </div>
                 <button className={styles.button} disabled={!focusItems.length} onClick={() => dispatch(fetchDelete(focusItems))}>
